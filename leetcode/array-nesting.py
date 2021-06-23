@@ -7,7 +7,6 @@ class Solution:
         for k in nums:
             s = set()
             _k = k
-            s_length = 0
             while True:
                 n = nums[_k]
 
@@ -17,11 +16,10 @@ class Solution:
                         calculated = True
                         break
                 if calculated:
-                    if s_length > longest_s_length:
-                        longest_s_length = s_length
                     break
 
                 if n in s:
+                    s_length = len(s)
                     if s_length > longest_s_length:
                         longest_s_length = s_length
                     ss.append(s)
@@ -29,7 +27,6 @@ class Solution:
                 else:
                     s.add(n)
                     _k = n
-                    s_length += 1
         return longest_s_length
 
 
